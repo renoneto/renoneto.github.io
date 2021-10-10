@@ -5,24 +5,24 @@ date:       2021-10-08 13:49:12 +0000
 permalink:  using_streamlit
 ---
 
-As a data scientists, we need to constantly show the result of our work to our stakeholders. Either through charts, dashboards, Jupyter notebooks or PowerPoint presentations. However, wouldn't it be great if we could create an interactive App? I give the stakeholders a _feel_ for what we have built? Letting them play with it?
+As a data scientists, we need to show the result of our work to our stakeholders constantly. Either through charts, dashboards, Jupyter notebooks or PowerPoint presentations. However, wouldn't it be great if we could create an interactive App? I give the stakeholders a _feel_ for what we have built? Letting them play with it?
 
 That's where Streamlit comes to help! 
 
 ## Why Streamlit?
-Streamlit was founded by a group of data scientists who know the struggles! It helps us to focus on the insights/capabilities of what we are trying to share rather than having to remember again how to create a dual-axis chart in matplotlib or creating functions in notebooks so users can interact with what was built.
+Streamlit was founded by a group of data scientists who know the struggles! It helps us focus on the insights/capabilities of what we are trying to share rather than remembering how to create a dual-axis chart in matplotlib or creating functions in notebooks so users can interact with what was built.
 
 ## What is Streamlit?
-According to their website: _Streamlit is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps._
+According to their website: _Streamlit is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes, you can build and deploy powerful data apps._
 
 ## My Use Case
 Okay, that's all cool but let's get to what really matters: _How could you use it?_
 To answer that question, I'm going to go through an example of a project where I have decided to use Streamlit.
 
-I have created a movie-recommender using the [MovieLens dataset](https://grouplens.org/datasets/movielens/). I'm not going to get into the actual model that I'm using (it's a Singular Valua Decomposition model, if you're wondering) but rather focus on how I'm benefiting from Streamlit to show what I have created.
+I have created a movie-recommender using the [MovieLens dataset](https://grouplens.org/datasets/movielens/). I'm not going to get into the actual model that I'm using (it's a Singular Value Decomposition model, if you're wondering) but instead focus on how I'm benefiting from Streamlit to show what I have created.
 
 ### My problem
-I had a model that was providing some recommendations but it was very hard to interact with it. I even created a function taking inputs to help me out but it wasn't enough. It was still too complicated and I had to run it on a Jupyter Notebook to make it work. So I thought, _Wouldn't it be great if I could have it as an app?_
+I had a model that was providing some recommendations but it was very hard to interact with it. I even created a function taking inputs to help me out but it wasn't enough. It was still too complicated and I had to run it on a Jupyter Notebook to make it work. So I thought, _ Wouldn't it be great if I could have it as an app?_
 
 That's when I found Streamlit! At this point, you are probably asking where you can see the app so decide if it's worth reading the rest of my post. [Here it is](https://movie-recommender-reno.herokuapp.com/).
 
@@ -44,7 +44,7 @@ Displays a dropdown taking an input from the user.
 > App command: `selectbox('Genres:', genres)`
 
 #### `warning` + `stop`
-Displays a warning message. You can use it in combination with an if statement and `stop` to stop the app until a criteria is met. 
+Displays a warning message. You can use it in combination with an if statement and `stop` to stop the app until a criterion is met. 
 > App command: 
 > ```
 > # If no genre is selected stop the app from running the rest
@@ -54,9 +54,9 @@ Displays a warning message. You can use it in combination with an if statement a
 >	```
 
 #### `form` + `form_submit_button`
-A form is a container that visually groups other elements and widgets together, and contains a Submit button. When the form’s Submit button is pressed, all widget values inside the form will be sent to Streamlit in a batch. 
+A form is a container that visually groups other elements and widgets together, and contains a Submit button. When the form's Submit button is pressed, all widget values inside the form will be sent to Streamlit in a batch. 
 
-In my app, I have used it to combine all ratings for all movies. Initially, I didn't have a form, however, that was creating other issues since I was trying to get five ratings from the user and it was taking a long time to load all the images. With the form, all ratings would load at the same time which gives the user a better experience. 
+In my app, I have used it to combine all ratings for all movies. Initially, I didn't have a form, however, that was creating other issues since I was trying to get five ratings from the user and it took a long time to load all the images. With the form, all ratings would load simultaneously, which gives the user a better experience. 
 
 In addition, without the form, after every rating was collected the whole app would run again, which would load the images again and decrease the user experience. So with the form, I found a way to display all ratings and only run the rest of the code when the 'Show recommendations!' button was clicked.
 > App command:
@@ -67,7 +67,7 @@ In addition, without the form, after every rating was collected the whole app wo
 > ```
 
 #### `columns` + `image`
-With the `columns` command is possible to create multiple widgets side-by-side. I'm using it to have the picture (`image` command) and rating side-by-side, for example.
+With the `columns` command is possible to create multiple widgets side-by-side. For example, I'm using it to have the picture (`image` command) and rating side-by-side.
 > ```
 > # For each movie create three columns
 > 	row1_0, row1_1, row1_2 = st.columns((1,2,3))
